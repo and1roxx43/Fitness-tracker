@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
 const indexRoutes = require("./routes/index");
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3010;
 
 const app = express();
 app.use(logger("dev"));
@@ -16,7 +16,10 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", 
 {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 
 
@@ -25,5 +28,5 @@ app.use(indexRoutes);
 
 
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}`);
+    console.log(`App running on port http://localhost:${PORT}`);
 });

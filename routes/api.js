@@ -1,57 +1,42 @@
-const router = require("express").Router();
-const { json } = require("body-parser");
-const workout = require("../models");
-const Workout = require("../models/workout");
+ const router = require("express").Router();
+ const Workout = require("../models/workout");
 
-router.get("api/workouts", async (req, res) => {
+router.get("/api/workouts", async (req, res) => {
     try{
-        const workouts = await Workout.find();
-        return res.status(200).json(workouts)
+        const workoutData = await Workout.find();
+         res.status(200).json(workoutData)
     } catch(err){
         res.status(500).json(err);
     }
 });
 
-router.put("/api/workouts/:id", async (req, res) => {
+router.put("/api/workouts/:id", async ({ body, params}, res) => {
     try{
         const workoutUpdate = await Workout.findByIdAndUpdate(
-            req.params.id,
-            { $push: {exercises: req.body}},
-            {new: true }
+            params.id,
+            { $push: {exercises: body}}
         )
-        return res.status(200).json(workoutUpdate);
+         res.status(200).json(workoutUpdate);
     } catch(err) {
         res.status(500).json(err);
     }  
 });
 
-router.post("/api/workouts", async (req, res) => {
+router.post("/api/workouts", async ({ body }, res) => {
     try{
-        const newWorkout = await Workout.create({
-            day: Date.now()
-        })
-        return res.status(200).json(newWorkout);
+        const newWorkout = await Workout.create({ body });
+        res.status(200).json(newWorkout);
     } catch(err) {
         json.status(500).json(err);
     }  
 });
 
-router.get("api/workouts/range", async (req, res) => {
+router.get("/api/workouts/range", async (req, res) => {
     try{
-        const workoutRange = await Workout.find({});
-        return res.status(200).json(workoutRange);
+        const workoutRange = await Workout.find();
+        res.status(200).json(workoutRange);
 
     } catch(err){
-        res.status(500).json(err);
-    }
-});
-
-router.delete("api/workouts/:id", async (req, res) => {
-    try{
-        const deleteWorkout = await Workout.findOneAndRemove({
-            _id: req.params.id
-        })
-    }catch(err) {
         res.status(500).json(err);
     }
 });
