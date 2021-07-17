@@ -3,7 +3,7 @@
 
 router.get("/api/workouts", async (req, res) => {
     try{
-        const workoutData = await Workout.find();
+        const workoutData = await Workout.find()
          res.status(200).json(workoutData)
     } catch(err){
         res.status(500).json(err);
