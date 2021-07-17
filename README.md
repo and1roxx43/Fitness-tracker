@@ -24,7 +24,10 @@ Must have these programs installed on to run code:
 - Morgan
 ___
 ## Images
-![Fitness-Tracker-graph](https://user-images.githubusercontent.com/14179472/126027927-c5ca36bd-1bf2-448e-b173-960f5691fc9b.png)
-![Fitness-Tracker-LastWorkout](https://user-images.githubusercontent.com/14179472/126027928-204f6932-5d00-44d6-bfd1-2da9708a0b45.png)
+
 ![Fitness-Tracker-new](https://user-images.githubusercontent.com/14179472/126027930-467c245c-7af3-40a5-8069-036202b6f54c.png)
+![Fitness-Tracker-LastWorkout](https://user-images.githubusercontent.com/14179472/126027928-204f6932-5d00-44d6-bfd1-2da9708a0b45.png)
+![Fitness-Tracker-graph](https://user-images.githubusercontent.com/14179472/126027927-c5ca36bd-1bf2-448e-b173-960f5691fc9b.png)
+
+
 
